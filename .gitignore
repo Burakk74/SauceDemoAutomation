@@ -1,0 +1,13 @@
+# Python Virtual Enrivonment
+venv/
+.pytest_cache/
+__pycache__/
+
+# HTML Rerpots
+*.html 
+
+# Chrome Profile Info
+chrome_profile/
+
+# Another Logs and Temporary Folders
+*.log
