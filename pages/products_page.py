@@ -52,3 +52,11 @@ class ProductsPage(BasePage):
             return int(self.find_element(self.SHOPPING_CART_BADGE).text)
         except:
             return 0
+        
+
+    def go_to_cart(self):
+        """Navigate to the cart page by clicking the cart icon."""
+        cart_icon = (By.CLASS_NAME, "shopping_cart_link")
+        self.click(cart_icon)
+
+    

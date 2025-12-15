@@ -10,8 +10,30 @@ class BasePage:
         self.wait = WebDriverWait(self.driver, 10)
     
     def find_element(self,locator: tuple):
-        """It find and return element."""
+        
         return self.wait.until(EC.presence_of_element_located(locator))
+
+    def wait_for_element_to_be_visible(self, locator: tuple, timeout=10):
+            return WebDriverWait(self.driver, timeout).until(
+                EC.visibility_of_element_located(locator)
+            )
+    def wait_for_element_to_be_clickable(self, locator: tuple, timeout=10):
+            
+            return WebDriverWait(self.driver, timeout).until(
+                EC.element_to_be_clickable(locator)
+            )
+    
+    def click_element(self, locator: tuple, timeout=10):
+            
+            self.wait_for_element_to_be_clickable(locator, timeout).click()
+
+
+    def input_text(self, locator: tuple, text: str, timeout=10):
+             
+            element = self.wait_for_element_to_be_visible(locator, timeout)
+            element.clear() # Mevcut metni temizle (opsiyonel ama iyi bir pratik)
+            element.send_keys(text)
+
 
 
 # The method of checking element presence
