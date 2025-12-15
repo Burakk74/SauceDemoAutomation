@@ -31,7 +31,7 @@ class BasePage:
     def input_text(self, locator: tuple, text: str, timeout=10):
              
             element = self.wait_for_element_to_be_visible(locator, timeout)
-            element.clear() # Mevcut metni temizle (opsiyonel ama iyi bir pratik)
+            element.clear()  
             element.send_keys(text)
 
 
